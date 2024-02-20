@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Processing Result</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+        }
+        .active {
+            font-weight: bold;
+            color: blue;
+        }
+        /* Sidebar styles */
+        #sidebar {
+            width: 200px;
+            height: 100%;
+            background-color: #f0f0f0;
+            position: fixed;
+            left: 0;
+            top: 0;
+            overflow-y: auto;
+            padding-top: 50px; /* Adjust for navbar height */
+        }
+        .sidebar-item {
+            padding: 10px;
+            transition: background-color 0.3s ease;
+            text-align: center;
+        }
+        .sidebar-item:hover {
+            background-color: #eaeaea;
+        }
+        .active {
+            font-weight: bold;
+            color: blue;
+        }
+        /* Form and table styles */
+        .form-container, .table-container {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+            margin-top: 20px; /* Add some space between form and table */
+        }
+        .form-control {
+            border-radius: 5px;
+            border: 1px solid #ced4da;
+            padding: 10px;
+            width: 100%;
+            transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+        }
+        .form-control:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+        }
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            color: #ffffff;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+        /* Table styles */
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px; /* Add some space above the table */
+        }
+        .table th, .table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #dee2e6;
+        }
+        .table th {
+            background-color: #007bff;
+            color: #ffffff;
+            border-color: #007bff;
+            text-transform: uppercase;
+        }
+        .table tbody tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+        }
+        .image-container {
+            width: 48%; /* İki resmin toplam genişliğinin %48'i kadar alan kullanacak */
+        }
+        h1, h2 {
+            color: #063466;
+            text-align: center;
+        }
+        img {
+            display: block;
+            margin: 0 auto;
+            max-width: 100%;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Sidebar -->
+    <div id="sidebar">
+        <div class="sidebar-item"><a href="/" class="{{ 'active' if page == 'home' else '' }}">Home</a></div>
+        <div class="sidebar-item"><a href="/nlp" class="{{ 'active' if page == 'about' else '' }}">NLP</a></div>
+        <div class="sidebar-item"><a href="/upload" class="{{ 'active' if page == 'upload' else '' }}">Image</a></div>
+    </div>
+    <div class="container">
+        <div class="image-container">
+            <h1>Binary</h1>
+            <img src="data:image/jpeg;base64,{{ res2 }}" alt="Processed Image 2">
+        </div>
+        <div class="image-container">
+            <h1>Color Prediction</h1>
+            <img src="data:image/jpeg;base64,{{ result.processed_image }}" alt="Processed Image 1">
+        </div>
+        
+    </div>
+</body>
+</html>

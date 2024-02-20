@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cümle Ekle</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Özel CSS stilleri */
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+       
+        .active {
+            font-weight: bold;
+            color: blue;
+        }
+        /* Sidebar styles */
+        #sidebar {
+            width: 200px;
+            height: 100%;
+            background-color: #f0f0f0;
+            position: fixed;
+            left: 0;
+            top: 0;
+            overflow-y: auto;
+            padding-top: 50px; /* Adjust for navbar height */
+        }
+        .sidebar-item {
+            padding: 10px;
+            transition: background-color 0.3s ease;
+            text-align: center;
+        }
+        .sidebar-item:hover {
+            background-color: #eaeaea;
+        }
+        .active {
+            font-weight: bold;
+            color: blue;
+        }
+        /* Form and table styles */
+        .form-container, .table-container {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+            margin-top: 20px; /* Add some space between form and table */
+        }
+        .form-control {
+            border-radius: 5px;
+            border: 1px solid #ced4da;
+            padding: 10px;
+            width: 100%;
+            transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+        }
+        .form-control:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+        }
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            color: #ffffff;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+        /* Table styles */
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px; /* Add some space above the table */
+        }
+        .table th, .table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #dee2e6;
+        }
+        .table th {
+            background-color: #007bff;
+            color: #ffffff;
+            border-color: #007bff;
+            text-transform: uppercase;
+        }
+        .table tbody tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- Sidebar -->
+    <div id="sidebar">
+        <div class="sidebar-item"><a href="/" class="{{ 'active' if page == 'home' else '' }}">Home</a></div>
+        <div class="sidebar-item"><a href="/nlp" class="{{ 'active' if page == 'about' else '' }}">NLP</a></div>
+        <div class="sidebar-item"><a href="/upload" class="{{ 'active' if page == 'upload' else '' }}">Image</a></div>
+    </div>
+    
+    <!-- Main Content -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <!-- Form Section -->
+                <div class="form-container">
+                    <h1 class="text-center mb-4">Cümle Ekle</h1>
+                    <form action="/add_sentence" method="post">
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="sentence" placeholder="Cümle girin">
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Ekle</button>
+                    </form>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <!-- Table Section -->
+                <div class="table-container">
+                    <h2 class="text-center mb-4">Veritabanındaki Cümleler</h2>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Cümle</th>
+                                <th>Review</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for user in sentences %}
+                            <tr>
+                                <td>{{ user[0] }}</td>
+                                <td>{{ user[1] }}</td>
+                                <td>{{ user[2] }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

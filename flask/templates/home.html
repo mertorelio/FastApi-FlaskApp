@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cümle Ekle</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Özel CSS stilleri */
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .container {
+            margin-top: 50px;
+        }
+
+        /* Sidebar styles */
+        #sidebar {
+            width: 200px;
+            height: 100%;
+            background-color: #f0f0f0;
+            position: fixed;
+            left: 0;
+            top: 0;
+            overflow-y: auto;
+            padding-top: 50px; /* Adjust for navbar height */
+        }
+        .sidebar-item {
+            padding: 10px;
+            transition: background-color 0.3s ease;
+            text-align: center;
+        }
+        .sidebar-item:hover {
+            background-color: #eaeaea;
+        }
+        .active {
+            font-weight: bold;
+            color: blue;
+        }
+
+        .form-container {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+        }
+
+        .table-container {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+        }
+
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .table th,
+        .table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #dee2e6;
+        }
+
+        .table th {
+            background-color: #007bff;
+            color: #ffffff;
+            border-color: #007bff;
+            text-transform: uppercase;
+        }
+
+        .table tbody tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-control {
+            border-radius: 5px;
+            border: 1px solid #ced4da;
+            padding: 10px;
+            width: 100%;
+            transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+        }
+
+        .form-control:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            color: #ffffff;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Sidebar -->
+    <div id="sidebar">
+        <div class="sidebar-item"><a href="/" class="{{ 'active' if page == 'home' else '' }}">Home</a></div>
+        <div class="sidebar-item"><a href="/nlp" class="{{ 'active' if page == 'about' else '' }}">NLP</a></div>
+        <div class="sidebar-item"><a href="/upload" class="{{ 'active' if page == 'contact' else '' }}">Image</a></div>
+    </div>
+
+    
+
+    <!-- Project Description -->
+    <div style="position: fixed; right: 0; top: 0; width: calc(100% - 200px); height: 100%; padding: 20px; overflow-y: auto;">
+        <h1>Project Description</h1>
+        <p>Here you can describe your project and provide more details about it. This area is reserved for project description and additional information.</p>
+    </div>
+</body>
+
+</html>

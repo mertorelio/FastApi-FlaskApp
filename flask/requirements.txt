@@ -1,0 +1,10 @@
+scikit-learn==1.0.2
+pydantic 
+requests
+fastapi
+uvicorn
+onnxruntime
+transformers
+numpy
+pillow
+flask
