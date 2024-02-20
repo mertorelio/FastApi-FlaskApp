@@ -5,14 +5,14 @@ conn = sqlite3.connect('example.db',check_same_thread=False)
 c = conn.cursor()
 
 # Tabloyu oluştur
-c.execute('''CREATE TABLE IF NOT EXISTS users (
+c.execute('''CREATE TABLE IF NOT EXISTS text (
                 id INTEGER PRIMARY KEY,
-                name TEXT NOT NULL,
-                age INTEGER NOT NULL)''')
+                sentence TEXT NOT NULL,
+                predict TEXT NOT NULL)''')
 
 # Yeni veri ekle
-def add_user(name, age):
-    c.execute("INSERT INTO users (name, age) VALUES (?, ?)", (name, age))
+def add_user(sentence, predict):
+    c.execute("INSERT INTO text (sentence, predict) VALUES (?, ?)", (sentence, predict))
     conn.commit()
 
 # Tüm veriyi listele
